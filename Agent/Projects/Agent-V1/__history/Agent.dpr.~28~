@@ -1,0 +1,64 @@
+program Agent;
+
+uses
+  FMX.Forms,
+  System.SysUtils,
+  FMX.Dialogs,
+  frmSplash_RtoL in '..\frmSplash_RtoL.pas' {frmSplash_fa},
+  LocalData in '..\LocalData.pas',
+  WbemScripting_TLB in '..\..\9.0\Imports\WbemScripting_TLB.pas',
+  GetActiveNetworkSetting in '..\GetActiveNetworkSetting.pas',
+  GetBios in '..\GetBios.pas',
+  uSMBIOS in '..\uSMBIOS.pas',
+  SQLData in 'SQLData.pas',
+  GetAgentProperties in 'GetAgentProperties.pas',
+  GetVideoCard in 'GetVideoCard.pas',
+  GetCDRom in 'GetCDRom.pas',
+  GetChassis in 'GetChassis.pas',
+  GetCPU in 'GetCPU.pas',
+  GetGroupAccount in 'GetGroupAccount.pas',
+  GetHardDisk in 'GetHardDisk.pas',
+  GetLogicDisk in 'GetLogicDisk.pas',
+  GetMainboard in 'GetMainboard.pas',
+  GetMemory in 'GetMemory.pas',
+  GetModem in 'GetModem.pas',
+  GetNetworkAdapter in 'GetNetworkAdapter.pas',
+  GetOS in 'GetOS.pas',
+  GetPrinter in 'GetPrinter.pas',
+  GetPublicDevices in 'GetPublicDevices.pas',
+  GetSoftwares in 'GetSoftwares.pas',
+  GetUserAccount in 'GetUserAccount.pas',
+  GetSys in 'GetSys.pas',
+  frmWelcome_RtoL in 'frmWelcome_RtoL.pas' {frmWelcome_fa},
+  frmConfig_RtoL in 'frmConfig_RtoL.pas' {frmConfig_fa},
+  TAgentClass in 'TAgentClass.pas',
+  frmMain_RtoL in 'frmMain_RtoL.pas' {frmMain_fa},
+  GetInfoThreadUnit in 'GetInfoThreadUnit.pas',
+  SaveToSqlThread in 'SaveToSqlThread.pas',
+  frmShowInfo_RtoL in 'frmShowInfo_RtoL.pas' {frmShowInfo_fa};
+
+{$R *.res}
+var
+  RightToLeft : string;
+begin
+  Application.Initialize;
+  if FileExists('ITComplexSrv.dll') then
+  begin
+     RightToLeft := LocalData.GetDataFromDll('AgentSetting','RigthToLeft','1');
+     if RightToLeft = '1' then
+     begin
+       Application.CreateForm(TfrmSplash_fa, frmSplash_fa);
+       Application.CreateForm(TfrmWelcome_fa, frmWelcome_fa);
+       Application.CreateForm(TfrmMain_fa, frmMain_fa);
+       //Application.CreateForm(TfrmShowInfo_fa, frmShowInfo_fa);
+       Application.Run;
+     end else if RightToLeft = '0' then
+     begin
+
+     end;
+  end else
+  begin
+     ShowMessage('File ITComplexSrv.dll does not exist');
+     Application.Terminate;
+   end;
+end.

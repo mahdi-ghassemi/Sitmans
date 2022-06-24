@@ -1,0 +1,62 @@
+object frmShowInfo_fa: TfrmShowInfo_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  BorderStyle = bsSizeToolWin
+  BorderIcons = []
+  ClientHeight = 149
+  ClientWidth = 484
+  Position = poScreenCenter
+  Transparency = False
+  Visible = False
+  OnActivate = FormActivate
+  Fill.Color = xFF05323E
+  Fill.Kind = bkSolid
+  StyleBook = StyleBook1
+  StyleLookup = 'backgroundstyle'
+  object lbl1: TLabel
+    Position.Point = '(16,40)'
+    Width = 448.000000000000000000
+    Height = 73.000000000000000000
+    StyleLookup = 'lbl1Style1'
+    TabOrder = 0
+    TextAlign = taCenter
+    VertTextAlign = taLeading
+    Text = 'lbl1'
+  end
+  object btnOk: TButton
+    Position.Point = '(200,105)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnOkClick
+    TabOrder = 1
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnOk'
+  end
+  object StyleBook1: TStyleBook
+    Resource.Strings = (
+      'object _1: TLayout'
+      '  Align = alClient'
+      '  Position.Point = '#39'(0,33)'#39
+      '  Width = 504.000000000000000000'
+      '  Height = 448.000000000000000000'
+      '  object TLayout'
+      '    StyleName = '#39'lbl1Style1'#39
+      '    Position.Point = '#39'(228,214)'#39
+      '    Width = 49.000000000000000000'
+      '    Height = 20.000000000000000000'
+      '    object TText'
+      '      StyleName = '#39'text'#39
+      '      Align = alClient'
+      '      Locked = True'
+      '      Width = 49.000000000000000000'
+      '      Height = 20.000000000000000000'
+      '      HitTest = False'
+      '      Fill.Color = xFFF3F3F0'
+      '      Text = '#39'label'#39
+      '    end'
+      '  end'
+      'end')
+  end
+end

@@ -1,0 +1,79 @@
+unit SQLData;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes,Data.DB,Data.Win.ADODB,ActiveX,ComObj,IdHashMessageDigest,
+  IdGlobal;
+
+type
+  SQLAccess = class
+
+    private
+    _storedProcedureName : string;
+    _sqlConnection : string;
+
+     published
+     constructor Create;
+
+
+
+
+  end;
+
+
+function FindAgentId(FingerPrint:string;ConnectionString:string): Integer;
+function GetLastAgentId(ConnectionString:string):Integer;
+
+implementation
+
+
+function FindAgentId(FingerPrint:string;ConnectionString:string): Integer;
+var
+ADOConn  : TADOConnection;
+ADOSP : TADOStoredProc;
+
+begin
+ADOConn := TADOConnection.Create(nil);
+ADOConn.ConnectionString := ConnectionString;
+ADOConn.LoginPrompt := False;
+ADOConn.Open();
+
+ADOSP := TADOStoredProc.Create(nil);
+ADOSP.Connection := ADOConn;
+ADOSP.ProcedureName := 'prcFindAgentId';
+ADOSP.Parameters.Refresh;
+
+ADOSP.Parameters.ParamByName('@AgentFingerPrint').Value := FingerPrint;
+ADOSP.ExecProc;
+
+Result := ADOSP.Parameters.ParamValues['@Result'];
+
+end;
+
+function GetLastAgentId(ConnectionString:string):Integer;
+var
+ADOConn  : TADOConnection;
+ADOSP : TADOStoredProc;
+begin
+ADOConn := TADOConnection.Create(nil);
+ADOConn.ConnectionString := ConnectionString;
+ADOConn.LoginPrompt := False;
+ADOConn.Open();
+
+ADOSP := TADOStoredProc.Create(nil);
+ADOSP.Connection := ADOConn;
+ADOSP.ProcedureName := 'prcGetLastAgentID';
+ADOSP.Parameters.Refresh;
+
+//ADOSP.Parameters.ParamByName('@AgentFingerPrint').Value := FingerPrint;
+ADOSP.ExecProc;
+
+Result := ADOSP.Parameters.ParamValues['@Result'];
+
+end;
+
+
+end.
+

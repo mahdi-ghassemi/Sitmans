@@ -1,0 +1,19 @@
+object frmSplash_fa: TfrmSplash_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form4'
+  BorderStyle = bsNone
+  ClientHeight = 400
+  ClientWidth = 600
+  Position = poScreenCenter
+  Transparency = False
+  Visible = False
+  StyleLookup = 'backgroundstyle'
+  object Timer1: TTimer
+    Interval = 5000
+    OnTimer = Timer1Timer
+    Left = 32
+    Top = 312
+  end
+end

@@ -1,0 +1,589 @@
+﻿unit frmMain_RtoL;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,LocalData, FMX.Objects,
+  SQLData,SaveToSqlThread,TAgentClass,frmShowInfo_RtoL,Registry,Windows,GetInfoThreadUnit;
+
+ {Agent Setting}
+  type TAgentSetting = record
+    AgentId : string;
+    SQLServerAddress : string;
+    SQLUsername : string;
+    SQLPassword : string;
+    SQLDatabaseName : string;
+    AgentPassword : string;
+    SQLConnString : string;
+    RunOnce : string;
+    IsRegister : string;
+    ControlSoftware : string;
+    ControlHardware : string;
+    ControlNetwork : string;
+    ControlAccounts : string;
+    SendSMS : string;
+    TCPPort : string;
+    UDPPort : string;
+    AdminMachineIPAddress : string;
+    Version : string;
+    LanguageCode : string;
+    RigthToLeft : string;
+    StepNumber : string;
+  end;
+
+  {Main Form Text}
+  type TFormMessages = record
+    frmCaption : string;
+    lblTitle : string;
+    lblActive : string;
+    lblSQLConnection : string;
+    lblGetInfo : string;
+    lblRegAgent : string;
+    lblSaveInfo : string;
+    btnOK : string;
+
+  end;
+
+
+
+
+
+  type
+  TfrmMain_fa = class(TForm)
+    StyleBook1: TStyleBook;
+    lblTitle: TLabel;
+    lblActive: TLabel;
+    AniIndicatorActive: TAniIndicator;
+    lblSQLConnection: TLabel;
+    lblGetInfo: TLabel;
+    lblRegAgent: TLabel;
+    lblSaveInfo: TLabel;
+    AniIndicatorSQL: TAniIndicator;
+    AniIndicatorRegAgent: TAniIndicator;
+    AniIndicatorGetInfo: TAniIndicator;
+    AniIndicatorSaveInfo: TAniIndicator;
+    imgActive: TImage;
+    imgSQL: TImage;
+    imgActiveFail: TImage;
+    imgSQLFail: TImage;
+    AniIndicatorAll: TAniIndicator;
+    TimerActive: TTimer;
+    TimerSql: TTimer;
+    imgWarning: TImage;
+    TimerGetInfo: TTimer;
+    imgGetInfoOk: TImage;
+    imgGetInfoFail: TImage;
+    TimerRegAgent: TTimer;
+    imgRegAgentOK: TImage;
+    imgRegAgentFail: TImage;
+    TimerSaveInfo: TTimer;
+    imgSaveInfoOk: TImage;
+    imgSaveInfoFail: TImage;
+    TimerAgentCheck: TTimer;
+    TimerCheckSaveToSql: TTimer;
+
+
+
+
+ // procedure FormCreate(Sender: TObject);
+  procedure GetAgentSettingFromDll();
+  procedure GetFormMessageFromDll();
+  procedure FillForm(LanguageCode:string);
+  procedure TimerActiveTimer(Sender: TObject);
+  procedure TimerSqlTimer(Sender: TObject);
+  procedure TimerGetInfoTimer(Sender: TObject);
+  procedure TimerRegAgentTimer(Sender: TObject);
+  procedure TimerSaveInfoTimer(Sender: TObject);
+  procedure TimerAgentCheckTimer(Sender: TObject);
+  procedure TimerCheckSaveToSqlTimer(Sender: TObject);
+  procedure SaveServiceToReg;
+
+
+
+  private
+    { Private declarations }
+  public
+  constructor Create(AOwner: TComponent); reintroduce; overload;
+    { Public declarations }
+
+  end;
+
+
+
+var
+  frmMain_fa: TfrmMain_fa;
+  SystemAgentSetting : TAgentSetting;
+  SystemMessages : TFormMessages;
+
+  t1_result,t2_result,t4_result,t5_result:integer;
+  _stepNumber,t3_result : integer;
+
+  MySqlAccess : SQLAccess;
+
+  MySqlThread : TSqlThread;
+
+ // MyAgent1 : TMyAgent;
+
+ // MyAgent : TMyAgent;
+
+  reg : TRegistry;
+  MyAgentThread : TMyThread;
+
+implementation
+
+{$R *.fmx}
+
+constructor TfrmMain_fa.Create(AOwner: TComponent);
+begin
+inherited;
+ GetAgentSettingFromDll;
+ if SystemAgentSetting.LanguageCode = '1' then FillForm('1');  {Farsi form}
+ if SystemAgentSetting.LanguageCode = '2' then FillForm('2');  {English form}
+
+
+ AniIndicatorAll.Enabled := true;
+ frmMain_fa.AniIndicatorActive.Visible := true;
+ frmMain_fa.AniIndicatorActive.Enabled := true;
+ frmMain_fa.lblActive.Enabled := true;
+
+ frmMain_fa.lblActive.Enabled := false;
+ frmMain_fa.lblSQLConnection.Enabled := false;
+ frmMain_fa.lblGetInfo.Enabled := false;
+ frmMain_fa.lblRegAgent.Enabled := false;
+ frmMain_fa.lblSaveInfo.Enabled := false;
+
+ frmMain_fa.AniIndicatorSQL.Visible := false;
+ frmMain_fa.AniIndicatorGetInfo.Visible := false;
+ frmMain_fa.AniIndicatorRegAgent.Visible := false;
+ frmMain_fa.AniIndicatorSaveInfo.Visible := false;
+
+ frmMain_fa.imgActive.Visible := false;
+ frmMain_fa.imgSQL.Visible := false;
+ frmMain_fa.imgActiveFail.Visible := false;
+ frmMain_fa.imgSQLFail.Visible := false;
+ frmMain_fa.imgWarning.Visible := false;
+ frmMain_fa.imgGetInfoOk.Visible := false;
+ frmMain_fa.imgGetInfoFail.Visible := false;
+ frmMain_fa.imgRegAgentOK.Visible := false;
+ frmMain_fa.imgRegAgentFail.Visible := false;
+ frmMain_fa.imgSaveInfoOk.Visible := false;
+ frmMain_fa.imgSaveInfoFail.Visible := false;
+
+end;
+
+{
+procedure TfrmMain_fa.FormCreate(Sender: TObject);
+begin
+
+ GetAgentSettingFromDll;
+ if SystemAgentSetting.LanguageCode = '1' then FillForm('1');  //Farsi form
+ if SystemAgentSetting.LanguageCode = '2' then FillForm('2');  //English form
+
+
+ AniIndicatorAll.Enabled := true;
+ frmMain_fa.AniIndicatorActive.Visible := true;
+ frmMain_fa.AniIndicatorActive.Enabled := true;
+ frmMain_fa.lblActive.Enabled := true;
+
+ frmMain_fa.lblActive.Enabled := false;
+ frmMain_fa.lblSQLConnection.Enabled := false;
+ frmMain_fa.lblGetInfo.Enabled := false;
+ frmMain_fa.lblRegAgent.Enabled := false;
+ frmMain_fa.lblSaveInfo.Enabled := false;
+
+ frmMain_fa.AniIndicatorSQL.Visible := false;
+ frmMain_fa.AniIndicatorGetInfo.Visible := false;
+ frmMain_fa.AniIndicatorRegAgent.Visible := false;
+ frmMain_fa.AniIndicatorSaveInfo.Visible := false;
+
+ frmMain_fa.imgActive.Visible := false;
+ frmMain_fa.imgSQL.Visible := false;
+ frmMain_fa.imgActiveFail.Visible := false;
+ frmMain_fa.imgSQLFail.Visible := false;
+ frmMain_fa.imgWarning.Visible := false;
+ frmMain_fa.imgGetInfoOk.Visible := false;
+ frmMain_fa.imgGetInfoFail.Visible := false;
+ frmMain_fa.imgRegAgentOK.Visible := false;
+ frmMain_fa.imgRegAgentFail.Visible := false;
+ frmMain_fa.imgSaveInfoOk.Visible := false;
+ frmMain_fa.imgSaveInfoFail.Visible := false;
+
+
+// TimerActive.Enabled := true;
+
+
+end;
+}
+procedure TfrmMain_fa.GetAgentSettingFromDll();
+begin
+
+
+  SystemAgentSetting.SQLServerAddress := LocalData.GetDataFromDll('AgentSetting','SQLServerAddress','1');
+  SystemAgentSetting.SQLUsername := LocalData.GetDataFromDll('AgentSetting','SQLUsername','1');
+  SystemAgentSetting.SQLPassword := LocalData.GetDataFromDll('AgentSetting','SQLPassword','1');
+  SystemAgentSetting.SQLDatabaseName := LocalData.GetDataFromDll('AgentSetting','SQLDatabaseName','1');
+  SystemAgentSetting.AgentPassword := LocalData.GetDataFromDll('AgentSetting','AgentPassword','1');
+  SystemAgentSetting.RunOnce := LocalData.GetDataFromDll('AgentSetting','RunOnce','1');
+  SystemAgentSetting.IsRegister := LocalData.GetDataFromDll('AgentSetting','IsRegister','1');
+  SystemAgentSetting.ControlSoftware := LocalData.GetDataFromDll('AgentSetting','ControlSoftware','1');
+  SystemAgentSetting.ControlHardware := LocalData.GetDataFromDll('AgentSetting','ControlHardware','1');
+  SystemAgentSetting.ControlNetwork := LocalData.GetDataFromDll('AgentSetting','ControlNetwork','1');
+  SystemAgentSetting.ControlAccounts := LocalData.GetDataFromDll('AgentSetting','ControlAccounts','1');
+  SystemAgentSetting.SendSMS := LocalData.GetDataFromDll('AgentSetting','SendSMS','1');
+  SystemAgentSetting.TCPPort := LocalData.GetDataFromDll('AgentSetting','TCPPort','1');
+  SystemAgentSetting.UDPPort := LocalData.GetDataFromDll('AgentSetting','UDPPort','1');
+  SystemAgentSetting.AdminMachineIPAddress := LocalData.GetDataFromDll('AgentSetting','AdminMachineIPAddress','1');
+  SystemAgentSetting.Version := LocalData.GetDataFromDll('AgentSetting','Version','1');
+  SystemAgentSetting.LanguageCode := LocalData.GetDataFromDll('AgentSetting','LanguageCode','1');
+  SystemAgentSetting.RigthToLeft := LocalData.GetDataFromDll('AgentSetting','RigthToLeft','1');
+  SystemAgentSetting.StepNumber := LocalData.GetDataFromDll('AgentSetting','StepNumber','1');
+end;
+
+procedure TfrmMain_fa.GetFormMessageFromDll();
+begin
+  SystemMessages.frmCaption := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','frmCaption');
+  SystemMessages.lblTitle := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblTitle');
+  SystemMessages.lblActive := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblActiveWait');
+  SystemMessages.lblSQLConnection := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSQLConnectionWait');
+  SystemMessages.lblGetInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblGetInfoWait');
+  SystemMessages.lblRegAgent := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblRegAgentWait');
+  SystemMessages.lblSaveInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSaveInfoWait');
+  SystemMessages.btnOK := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','btnOK');
+
+  end;
+
+procedure TfrmMain_fa.FillForm(LanguageCode:string);
+
+begin
+  GetFormMessageFromDll;
+
+  frmMain_fa.Caption := SystemMessages.frmCaption;
+  frmMain_fa.lblTitle.Text := SystemMessages.lblTitle;
+  frmMain_fa.lblActive.Text := SystemMessages.lblActive;
+  frmMain_fa.lblSQLConnection.Text := SystemMessages.lblSQLConnection;
+  frmMain_fa.lblGetInfo.Text := SystemMessages.lblGetInfo;
+  frmMain_fa.lblRegAgent.Text := SystemMessages.lblRegAgent;
+  frmMain_fa.lblSaveInfo.Text := SystemMessages.lblSaveInfo;
+
+
+end;
+
+
+
+procedure TfrmMain_fa.TimerActiveTimer(Sender: TObject);
+var
+_SoftwareActiveCheck : string;
+frmShow : TfrmShowInfo_fa;
+begin
+
+  TimerActive.Enabled := false;
+  {License Control Start}
+  frmMain_fa.AniIndicatorActive.Visible := true;
+  frmMain_fa.AniIndicatorActive.Enabled := true;
+  frmMain_fa.lblActive.Enabled := true;
+
+ _SoftwareActiveCheck := SystemAgentSetting.IsRegister;
+
+ if _SoftwareActiveCheck = '0' then  {Application Not Actived}
+  begin
+   t1_result := -1;
+   frmMain_fa.AniIndicatorActive.Enabled := false;
+   frmMain_fa.AniIndicatorActive.Visible := false;
+   frmMain_fa.imgActiveFail.Visible := true;
+   SystemMessages.lblActive := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblActiveFail');
+   frmMain_fa.lblActive.Text := SystemMessages.lblActive;
+
+  end
+  else if _SoftwareActiveCheck = '1' then {Application  Actived}
+  begin
+   t1_result := 1;
+   frmMain_fa.AniIndicatorActive.Visible := false;
+   frmMain_fa.imgActive.Visible := true;
+   SystemMessages.lblActive := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblActiveOK');
+   frmMain_fa.lblActive.Text := SystemMessages.lblActive;
+   _stepNumber := StrToInt(SystemAgentSetting.StepNumber);
+   if _stepNumber < 1 then LocalData.SetStepNumber(1);
+   end;
+ if t1_result = 1 then {Sql Connection string control start}
+ begin
+   frmMain_fa.AniIndicatorSQL.Visible := true;
+   frmMain_fa.AniIndicatorSQL.Enabled := true;
+   frmMain_fa.lblSQLConnection.Enabled := true;
+   frmMain_fa.TimerSql.Enabled := true;
+ end;
+ if t1_result = -1 then  { Application  Active control Failed}
+ begin
+ frmMain_fa.AniIndicatorAll.Enabled := false;
+ frmMain_fa.AniIndicatorAll.Visible := false;
+ frmMain_fa.imgWarning.Visible := true;
+ frmMain_fa.lblTitle.Visible := false;
+ frmShow := TfrmShowInfo_fa.Create(Self);
+ frmShow.PMessage := 'RegisterFail';
+ frmShow.LangCode := SystemAgentSetting.LanguageCode;
+ frmShow.ShowModal;
+ Application.Terminate;
+ end;
+
+end;
+
+
+
+
+
+procedure TfrmMain_fa.TimerSqlTimer(Sender: TObject);
+var
+_SQLConnectionCheck : string;
+frmShow : TfrmShowInfo_fa;
+begin
+  TimerSql.Enabled := false;
+  _SQLConnectionCheck := LocalData.CheckSQLConnectionString();
+   frmMain_fa.AniIndicatorSQL.Enabled := false;
+   if _SQLConnectionCheck = '0' then  {SQL Connection Check Faill}
+   begin
+   t2_result := -1;
+   frmMain_fa.AniIndicatorSQL.Visible := false;
+   frmMain_fa.imgSQLFail.Visible := true;
+   SystemMessages.lblSQLConnection := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSQLConnectionFail');
+   frmMain_fa.lblSQLConnection.Text := SystemMessages.lblSQLConnection;
+   end
+   else if _SQLConnectionCheck = '1' then  {SQL Connection Check Passed}
+   begin
+   t2_result := 1;
+   frmMain_fa.AniIndicatorSQL.Visible := false;
+   frmMain_fa.imgSQL.Visible := true;
+   SystemMessages.lblSQLConnection := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSQLConnectionOK');
+   frmMain_fa.lblSQLConnection.Text := SystemMessages.lblSQLConnection;
+   _stepNumber := StrToInt(SystemAgentSetting.StepNumber);
+   if _stepNumber < 2 then LocalData.SetStepNumber(2);
+   end;
+
+if t2_result = 1 then  {Get System Information Start}
+begin
+   frmMain_fa.AniIndicatorGetInfo.Visible := true;
+   frmMain_fa.AniIndicatorGetInfo.Enabled := true;
+   frmMain_fa.lblGetInfo.Enabled := true;
+   frmMain_fa.TimerGetInfo.Enabled := true;
+end;
+if t2_result = -1 then
+begin
+  frmMain_fa.AniIndicatorAll.Enabled := false;
+  frmMain_fa.AniIndicatorAll.Visible := false;
+  frmMain_fa.imgWarning.Visible := true;
+  frmMain_fa.lblTitle.Visible := false;
+  frmShow := TfrmShowInfo_fa.Create(Self);
+  frmShow.PMessage := 'SqlConFail';
+  frmShow.LangCode := SystemAgentSetting.LanguageCode;
+  frmShow.ShowModal;
+  Application.Terminate;
+end;
+end;
+
+
+
+procedure TfrmMain_fa.TimerGetInfoTimer(Sender: TObject);
+begin
+
+  TimerGetInfo.Enabled := false;
+
+  if _stepNumber < 3 then
+  begin
+
+  MyAgentThread := TMyThread.Create(true);
+  MyAgentThread.Resume;
+  TimerAgentCheck.Enabled := true;
+
+
+  {
+  MyAgent := TMyAgent.Create;
+  MyAgent.GetSystemInfo;
+  MyAgent.GetSystemHashCode;
+  MyAgent.SaveSystemInfoToDll;
+  }
+  end;
+
+
+end;
+
+procedure TfrmMain_fa.TimerAgentCheckTimer(Sender: TObject);
+var
+_totalSystemHashCode : string;
+begin
+   TimerAgentCheck.Enabled := false;
+   _totalSystemHashCode := LocalData.GetDataFromDll('HashCodes','HashCode','1');
+    if _totalSystemHashCode <> '' then
+    begin
+
+      frmMain_fa.AniIndicatorGetInfo.Enabled := false;
+      frmMain_fa.AniIndicatorGetInfo.Visible := false;
+      frmMain_fa.imgGetInfoOk.Visible := true;
+      SystemMessages.lblGetInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblGetInfoOK');
+      frmMain_fa.lblGetInfo.Text := SystemMessages.lblGetInfo;
+      frmMain_fa.AniIndicatorRegAgent.Visible := true;
+      frmMain_fa.AniIndicatorRegAgent.Enabled := true;
+      frmMain_fa.lblRegAgent.Enabled := true;
+      _stepNumber := StrToInt(SystemAgentSetting.StepNumber);
+      if _stepNumber < 3 then LocalData.SetStepNumber(3);
+      TimerRegAgent.Enabled := true;  {Get AgentId From Sql Start}
+
+  end else
+  begin
+      frmMain_fa.AniIndicatorGetInfo.Enabled := false;
+      frmMain_fa.AniIndicatorGetInfo.Visible := false;
+      frmMain_fa.imgGetInfoOk.Visible := true;
+      SystemMessages.lblGetInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblGetInfoOK');
+      frmMain_fa.lblGetInfo.Text := SystemMessages.lblGetInfo;
+      frmMain_fa.AniIndicatorRegAgent.Visible := true;
+      frmMain_fa.AniIndicatorRegAgent.Enabled := true;
+      frmMain_fa.lblRegAgent.Enabled := true;
+  end;
+
+end;
+
+
+
+procedure TfrmMain_fa.TimerRegAgentTimer(Sender: TObject);
+var
+_agentId : integer;
+_conSting : string;
+
+
+begin
+  TimerRegAgent.Enabled := false;
+  _stepNumber := StrToInt(SystemAgentSetting.StepNumber);
+
+  if _stepNumber < 4 then
+  begin
+    _conSting := 'Provider=SQLOLEDB;Data Source='+Trim(SystemAgentSetting.SQLServerAddress)+
+                      ';Initial Catalog='+Trim(SystemAgentSetting.SQLDatabaseName)+
+                      ';User Id='+Trim(SystemAgentSetting.SQLUsername)+
+                      ';Password='+Trim(SystemAgentSetting.SQLPassword);
+
+    MySqlAccess := SQLAccess.Create(_conSting);
+    _agentId := MySqlAccess.GetLastAgentId;
+
+    LocalData.SaveAgentIdToDll(IntToStr(_agentId));
+
+    LocalData.SetStepNumber(4);
+    SystemAgentSetting.AgentId := IntToStr(_agentId);
+
+    frmMain_fa.AniIndicatorRegAgent.Enabled := false;
+    frmMain_fa.AniIndicatorRegAgent.Visible := false;
+    frmMain_fa.imgRegAgentOK.Visible := true;
+    SystemMessages.lblRegAgent := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblRegAgentOK');
+    frmMain_fa.lblRegAgent.Text := SystemMessages.lblRegAgent;
+    frmMain_fa.AniIndicatorSaveInfo.Visible := true;
+    frmMain_fa.AniIndicatorSaveInfo.Enabled := true;
+    frmMain_fa.lblSaveInfo.Enabled := true;
+    TimerSaveInfo.Enabled := true;
+  end else
+  begin
+    frmMain_fa.AniIndicatorRegAgent.Enabled := false;
+    frmMain_fa.AniIndicatorRegAgent.Visible := false;
+    frmMain_fa.imgRegAgentOK.Visible := true;
+    SystemMessages.lblRegAgent := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblRegAgentOK');
+    frmMain_fa.lblRegAgent.Text := SystemMessages.lblRegAgent;
+    frmMain_fa.AniIndicatorSaveInfo.Visible := true;
+    frmMain_fa.AniIndicatorSaveInfo.Enabled := true;
+    frmMain_fa.lblSaveInfo.Enabled := true;
+    TimerSaveInfo.Enabled := true;
+  end;
+
+end;
+
+
+procedure TfrmMain_fa.TimerSaveInfoTimer(Sender: TObject);
+var
+ frmShow : TfrmShowInfo_fa;
+ thrResult : boolean;
+ key : string;
+ dir : string;
+ send2sql : string;
+
+begin
+   TimerSaveInfo.Enabled := false;
+   thrResult:= true;
+   if _stepNumber < 5 then
+   begin
+   MySqlThread := TSqlThread.Create(true);
+   MySqlThread.OnTerminate := TerminateThread;
+   MySqlThread.Resume;
+    TimerCheckSaveToSql.Enabled := true;
+   {
+   MyAgent1 := TMyAgent.Create;
+   MyAgent1.GetAllPropertiesFromDll;
+   MyAgent1.SaveAllPropertiesToSql;
+   LocalData.UpdateFieldToDll('AgentSetting','SendToSQL','1','ID = 1');
+
+   frmMain_fa.AniIndicatorSaveInfo.Enabled := false;
+   frmMain_fa.AniIndicatorSaveInfo.Visible := false;
+   frmMain_fa.imgSaveInfoOk.Visible := true;
+   SystemMessages.lblSaveInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSaveInfoOK');
+   frmMain_fa.lblSaveInfo.Text := SystemMessages.lblSaveInfo;
+   LocalData.SetStepNumber(5);
+   LocalData.UpdateFieldToDll('AgentSetting','RunOnce','1','ID = 1');
+   }
+   end;
+
+
+
+
+
+
+     //frmShow.ShowModal;
+
+
+
+end;
+
+procedure TfrmMain_fa.TimerCheckSaveToSqlTimer(Sender: TObject);
+var
+_SendToSql : string;
+begin
+ TimerCheckSaveToSql.Enabled := false;
+ _SendToSql := LocalData.GetDataFromDll('AgentSetting','SendToSQL','1');
+ if _SendToSql = '1' then
+ begin
+   frmMain_fa.AniIndicatorSaveInfo.Enabled := false;
+   frmMain_fa.AniIndicatorSaveInfo.Visible := false;
+   frmMain_fa.imgSaveInfoOk.Visible := true;
+   SystemMessages.lblSaveInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSaveInfoOK');
+   frmMain_fa.lblSaveInfo.Text := SystemMessages.lblSaveInfo;
+   LocalData.SetStepNumber(5);
+   LocalData.UpdateFieldToDll('AgentSetting','RunOnce','1','ID = 1');
+   SaveServiceToReg;
+  end else
+  begin
+   frmMain_fa.AniIndicatorSaveInfo.Enabled := false;
+   frmMain_fa.AniIndicatorSaveInfo.Visible := false;
+   frmMain_fa.imgSaveInfoOk.Visible := true;
+   SystemMessages.lblSaveInfo := LocalData.GetMessageFromDll(SystemAgentSetting.LanguageCode,'frmMain_fa','lblSaveInfoOK');
+   frmMain_fa.lblSaveInfo.Text := SystemMessages.lblSaveInfo;
+
+  end;
+
+ frmMain_fa.Free;
+ Application.Terminate;
+
+end;
+
+procedure  TfrmMain_fa.SaveServiceToReg;
+var
+ key : string;
+ dir : string;
+begin
+ reg := TRegistry.Create(KEY_WRITE);
+     reg.RootKey := HKEY_LOCAL_MACHINE;
+     key := '\Software\Microsoft\Windows\CurrentVersion\Run';
+     Reg.CreateKey(key);
+     dir := GetCurrentDir;
+     if Reg.OpenKey(Key,False) then
+     begin
+         Reg.WriteString('AgentSrv',dir+'\AgentSrv.exe');
+         Reg.DeleteValue('AgentConfig');
+     end;
+
+end;
+
+
+end.

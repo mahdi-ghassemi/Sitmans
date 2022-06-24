@@ -1,0 +1,36 @@
+unit frmMain_RtoL;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.TabControl;
+
+type
+  TfrmMain_fa = class(TForm)
+    TabControl1: TTabControl;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain_fa: TfrmMain_fa;
+
+implementation
+
+{$R *.fmx}
+
+procedure TfrmMain_fa.FormCreate(Sender: TObject);
+var
+t : TTabItem;
+begin
+ t := TTabItem.Create(nil);
+ t.Text := 'SQL Setting';
+ t.Enabled := true;
+
+end;
+
+end.

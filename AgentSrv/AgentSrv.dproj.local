@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/04/20 10:13:35.000.476,=C:\Users\Mehdi\Documents\RAD Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2013/04/20 11:11:19.000.915,=C:\Users\Mehdi\Documents\RAD Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2013/05/02 19:59:47.000.093,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2013/05/02 20:00:21.000.593,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\AgentSrv.dproj=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2013/05/02 20:00:32.000.718,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\frmMain.dfm=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.dfm</Transaction>
+    <Transaction>2013/05/02 20:00:32.000.718,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\frmMain.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2013/05/02 20:01:44.000.984,D:\My Projects\AgentSrv\frmMain.dfm=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\frmMain.dfm</Transaction>
+    <Transaction>2013/05/02 20:01:44.000.984,D:\My Projects\AgentSrv\frmMain.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\frmMain.pas</Transaction>
+    <Transaction>2013/05/02 20:01:47.000.234,D:\My Projects\AgentSrv\AgentSrv.dproj=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\AgentSrv.dproj</Transaction>
+    <Transaction>2013/05/02 20:06:36.000.734,=D:\My Projects\AgentSrv\CoolTrayIcon.pas</Transaction>
+    <Transaction>2013/05/02 20:06:36.000.718,=D:\My Projects\AgentSrv\TextTrayIcon.pas</Transaction>
+    <Transaction>2013/05/02 20:06:36.000.734,=D:\My Projects\AgentSrv\RegisterTrayIcons.pas</Transaction>
+    <Transaction>2013/05/02 20:06:36.000.750,=D:\My Projects\AgentSrv\SimpleTimer.pas</Transaction>
+    <Transaction>2013/05/05 09:47:16.000.845,=D:\My Projects\AgentSrv\TAgentClass.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.882,=D:\My Projects\AgentSrv\GetVideoCard.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.611,=D:\My Projects\AgentSrv\GetChassis.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.905,=D:\My Projects\AgentSrv\LocalData.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.583,=D:\My Projects\AgentSrv\GetBios.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.847,=D:\My Projects\AgentSrv\GetSys.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.749,=D:\My Projects\AgentSrv\GetOS.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.923,=D:\My Projects\AgentSrv\SQLData.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.812,=D:\My Projects\AgentSrv\GetPublicDevices.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.796,=D:\My Projects\AgentSrv\GetPrinter.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.941,=D:\My Projects\AgentSrv\uSMBIOS.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.718,=D:\My Projects\AgentSrv\GetModem.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.687,=D:\My Projects\AgentSrv\GetMainboard.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.702,=D:\My Projects\AgentSrv\GetMemory.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.656,=D:\My Projects\AgentSrv\GetHardDisk.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.596,=D:\My Projects\AgentSrv\GetCDRom.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.865,=D:\My Projects\AgentSrv\GetUserAccount.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.553,=D:\My Projects\AgentSrv\GetActiveNetworkSetting.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.641,=D:\My Projects\AgentSrv\GetGroupAccount.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.830,=D:\My Projects\AgentSrv\GetSoftwares.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.734,=D:\My Projects\AgentSrv\GetNetworkAdapter.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.672,=D:\My Projects\AgentSrv\GetLogicDisk.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.626,=D:\My Projects\AgentSrv\GetCPU.pas</Transaction>
+    <Transaction>2013/05/05 10:16:45.000.569,=D:\My Projects\AgentSrv\GetAgentProperties.pas</Transaction>
+    <Transaction>2013/05/05 10:20:36.000.890,=C:\Users\Mehdi\Documents\RAD Studio\9.0\Imports\WbemScripting_TLB.pas</Transaction>
+    <Transaction>2013/05/19 18:21:30.000.437,=D:\My Projects\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/05/19 18:21:58.000.171,D:\My Projects\AgentSrv\U_usb.pas=D:\My Projects\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/05/19 18:35:00.000.421,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\9.0\Imports\WbemScripting_TLB.pas</Transaction>
+    <Transaction>2013/07/07 12:25:48.000.359,=D:\My Projects\Last Release\92-04-15\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/07/07 12:34:03.000.671,D:\My Projects\Last Release\92-04-15\AgentSrv\frmChat_RtoL.pas=D:\My Projects\Last Release\92-04-15\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/07/07 12:34:03.000.671,D:\My Projects\Last Release\92-04-15\AgentSrv\frmChat_RtoL.dfm=D:\My Projects\Last Release\92-04-15\AgentSrv\Unit1.dfm</Transaction>
+    <Transaction>2013/07/09 09:28:44.000.406,=D:\My Projects\Last Release\92-04-15\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/07/09 09:29:14.000.859,D:\My Projects\Last Release\92-04-15\AgentSrv\frmPm_RtoL.pas=D:\My Projects\Last Release\92-04-15\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/07/09 09:29:14.000.859,D:\My Projects\Last Release\92-04-15\AgentSrv\frmPm_RtoL.dfm=D:\My Projects\Last Release\92-04-15\AgentSrv\Unit1.dfm</Transaction>
+    <Transaction>2013/08/30 08:19:52.000.930,=D:\My Projects\Last Release\92-05-19\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/08/30 08:20:18.000.021,D:\My Projects\Last Release\92-05-19\AgentSrv\ChangeCheckThread.pas=D:\My Projects\Last Release\92-05-19\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/11/28 08:34:51.000.578,=D:\My Projects\Last Release\92-07-29\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/11/28 08:36:25.000.390,D:\My Projects\Last Release\92-07-29\AgentSrv\Unit1.pas=D:\My Projects\Last Release\92-07-29\AgentSrv\EZCrypt.pas</Transaction>
+    <Transaction>2013/12/03 07:51:32.000.421,=D:\My Projects\Last Release\92-07-29\AgentSrv\Unit1.pas</Transaction>
+    <Transaction>2013/12/03 07:52:31.000.375,D:\My Projects\Last Release\92-07-29\AgentSrv\EncDec.pas=D:\My Projects\Last Release\92-07-29\AgentSrv\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

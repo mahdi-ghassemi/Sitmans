@@ -1,0 +1,32 @@
+object frmShowInfo_fa: TfrmShowInfo_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form1'
+  BorderStyle = bsNone
+  ClientHeight = 173
+  ClientWidth = 527
+  Position = poScreenCenter
+  Transparency = False
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  object lbl1: TLabel
+    Position.Point = '(32,32)'
+    Width = 448.000000000000000000
+    Height = 49.000000000000000000
+    TabOrder = 1
+    VertTextAlign = taLeading
+    Text = 'lbl1'
+  end
+  object btnOk: TButton
+    Position.Point = '(232,112)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnOkClick
+    TabOrder = 10
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnOk'
+  end
+end

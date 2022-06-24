@@ -1,0 +1,68 @@
+unit frmMain_RtoL;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.TabControl;
+
+type
+  TfrmMain_fa = class(TForm)
+    TabControl1: TTabControl;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain_fa: TfrmMain_fa;
+
+implementation
+
+{$R *.fmx}
+
+procedure TfrmMain_fa.FormCreate(Sender: TObject);
+var
+SqlSettingItem : TTabItem;
+AgentSettingItem : TTabItem;
+LanguageSetting : TTabItem;
+ActiveSoftwareItem : TTabItem;
+PublicSettingItem :TTabItem;
+AboutSettingItem : TTabItem;
+
+begin
+ SqlSettingItem := TTabItem.Create(TabControl1);
+ SqlSettingItem.Parent := TabControl1;
+ SqlSettingItem.Text := 'SQL Setting';
+ SqlSettingItem.Enabled := true;
+
+ AgentSettingItem := TTabItem.Create(TabControl1);
+ AgentSettingItem.Parent := TabControl1;
+ AgentSettingItem.Text := 'SQL Setting';
+ AgentSettingItem.Enabled := true;
+
+ LanguageSetting := TTabItem.Create(TabControl1);
+ LanguageSetting.Parent := TabControl1;
+ LanguageSetting.Text := 'SQL Setting';
+ LanguageSetting.Enabled := true;
+
+ ActiveSoftwareItem := TTabItem.Create(TabControl1);
+ ActiveSoftwareItem.Parent := TabControl1;
+ ActiveSoftwareItem.Text := 'SQL Setting';
+ ActiveSoftwareItem.Enabled := true;
+
+ PublicSettingItem := TTabItem.Create(TabControl1);
+ PublicSettingItem.Parent := TabControl1;
+ PublicSettingItem.Text := 'SQL Setting';
+ PublicSettingItem.Enabled := true;
+
+ AboutSettingItem := TTabItem.Create(TabControl1);
+ AboutSettingItem.Parent := TabControl1;
+ AboutSettingItem.Text := 'SQL Setting';
+ AboutSettingItem.Enabled := true;
+
+end;
+
+end.

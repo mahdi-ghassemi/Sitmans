@@ -1,0 +1,66 @@
+unit GetInfoThreadUnit;
+
+interface
+
+uses
+System.Classes,TAgent_Class;
+
+type
+   TMyThread = class(TThread)
+   private
+   var
+     MyAgent : TAgent;
+
+   procedure SetResult;
+
+   protected
+      procedure Execute; override;
+
+   public
+      constructor Create(Suspended: Boolean);
+   end;
+
+
+
+
+implementation
+
+uses frmMain_RtoL; //Unit of the form that will be updated by thread
+
+constructor TMyThread.Create(Suspended: Boolean);
+begin
+   Inherited Create(Suspended);
+   FreeOnTerminate := True;
+end;
+
+ procedure TMyThread.SetResult;
+ begin
+   frmMain_RtoL.MyAgent1 := MyAgent;
+
+ end;
+
+procedure TMyThread.Execute;
+begin
+    if Terminated then Exit;
+
+    MyAgent := TAgent.Create;
+    MyAgent.GetSystemInfo;
+
+    if Terminated then Exit;
+
+    MyAgent.GetSystemHashCode;
+
+    if Terminated then Exit;
+
+    MyAgent.SaveSystemInfoToDll;
+
+
+    Synchronize(SetResult);
+
+    Terminate;
+    WaitFor;
+    Exit;
+end;
+
+
+end.

@@ -1,0 +1,20 @@
+object frmMain_fa: TfrmMain_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form1'
+  BorderIcons = [biSystemMenu, biMinimize, biHelp]
+  ClientHeight = 500
+  ClientWidth = 731
+  Position = poScreenCenter
+  Transparency = False
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  object TabControl1: TTabControl
+    Width = 729.000000000000000000
+    Height = 377.000000000000000000
+    TabOrder = 9
+    TabHeight = 20.000000000000000000
+  end
+end

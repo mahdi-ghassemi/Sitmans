@@ -1,0 +1,41 @@
+object frmWelcome_fa: TfrmWelcome_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form1'
+  BorderIcons = [biSystemMenu, biMinimize]
+  ClientHeight = 400
+  ClientWidth = 600
+  Position = poScreenCenter
+  Transparency = False
+  Visible = True
+  StyleLookup = 'backgroundstyle'
+  object btnOk: TButton
+    Position.Point = '(32,360)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnOkClick
+    TabOrder = 1
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnOk'
+  end
+  object btnExit: TButton
+    Position.Point = '(128,360)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnExitClick
+    TabOrder = 10
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnExit'
+  end
+  object memWelcome: TMemo
+    Position.Point = '(88,56)'
+    Width = 436.000000000000000000
+    Height = 273.000000000000000000
+    TabOrder = 11
+    ReadOnly = True
+    WordWrap = False
+  end
+end

@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C55ADD44-AC9D-4382-AC82-C6F705088ABC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Admin_Control_Panel</RootNamespace>
+    <AssemblyName>AdminCPanel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>http://localhost/Admin Control Panel/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Admin_Control_Panel.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarsiCalendarComponent">
+      <HintPath>.\FarsiCalendarComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.TINYLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Persia, Version=2.0.2503.1802, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Base, Version=2013.2.1700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Controls, Version=2013.2.1700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Controls.Win, Version=2013.2.1700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Design, Version=2013.2.1700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Report, Version=2013.2.1700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Report.Win, Version=2013.2.1700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=7.0.13.220, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=7.0.13.220, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.ChartView, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.ChartView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.PdfViewer, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.PdfViewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.PivotGrid, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.PivotGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadChart, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RadChart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadDock, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RadDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadMarkupEditor, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RadMarkupEditor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RichTextBox, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RichTextBox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Scheduler, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Scheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.SpellChecker, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.SpellChecker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Aqua.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Breeze.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Desert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.HighContrastBlack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Office2007Black.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Office2007Silver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Office2010Black.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Office2010Blue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Office2010Silver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.TelerikMetroBlue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.TelerikMetroTouch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.VisualStudio2012Dark.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.VisualStudio2012Light.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.Windows7.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikData, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2013.1.220.40\TelerikData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ACL.cs" />
+    <Compile Include="Classes\AclObjectProfile.cs" />
+    <Compile Include="Classes\AclProfile.cs" />
+    <Compile Include="Classes\AgentDetailsInReportList.cs" />
+    <Compile Include="Classes\AgentDevicesList.cs" />
+    <Compile Include="Classes\AgentInCaseDevices.cs" />
+    <Compile Include="Classes\AgentInReportList.cs" />
+    <Compile Include="Classes\AgentListVisualItem.cs" />
+    <Compile Include="Classes\Agents.cs" />
+    <Compile Include="Classes\AgentsDetailVisualItem.cs" />
+    <Compile Include="Classes\AgentsIconVisualItem.cs" />
+    <Compile Include="Classes\AgentsIdChild.cs" />
+    <Compile Include="Classes\AgentsIdChildDetails.cs" />
+    <Compile Include="Classes\AgentsIdParent.cs" />
+    <Compile Include="Classes\AgentView.cs" />
+    <Compile Include="Classes\AlertProfile.cs" />
+    <Compile Include="Classes\Com.cs" />
+    <Compile Include="Classes\CustomReport.cs" />
+    <Compile Include="Classes\Encrypter.cs" />
+    <Compile Include="Classes\EventObject.cs" />
+    <Compile Include="Classes\Events.cs" />
+    <Compile Include="Classes\LogicLayer.cs" />
+    <Compile Include="Classes\OnWorkObject.cs" />
+    <Compile Include="Classes\Query.cs" />
+    <Compile Include="Classes\Scheme.cs" />
+    <Compile Include="Classes\SettingProfile.cs" />
+    <Compile Include="Classes\SQLAccess.cs" />
+    <Compile Include="Classes\USBLock.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="LtoR_Forms\frmBulding_LtoR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmBulding_LtoR.Designer.cs">
+      <DependentUpon>frmBulding_LtoR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmLogin_LtoR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmLogin_LtoR.Designer.cs">
+      <DependentUpon>frmLogin_LtoR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmMain_LtoR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmMain_LtoR.Designer.cs">
+      <DependentUpon>frmMain_LtoR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmShowInfoSmall_LtoR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmShowInfoSmall_LtoR.Designer.cs">
+      <DependentUpon>frmShowInfoSmall_LtoR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmShowInfo_LtoR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmShowInfo_LtoR.Designer.cs">
+      <DependentUpon>frmShowInfo_LtoR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmSplash_LtoR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LtoR_Forms\frmSplash_LtoR.Designer.cs">
+      <DependentUpon>frmSplash_LtoR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmACLProfile_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmACLProfile_RtoL.Designer.cs">
+      <DependentUpon>frmACLProfile_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmACLToObjectsProfile_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmACLToObjectsProfile_RtoL.designer.cs">
+      <DependentUpon>frmACLToObjectsProfile_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentAssets_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentAssets_RtoL.Designer.cs">
+      <DependentUpon>frmAgentAssets_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentDetails_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentDetails_RtoL.Designer.cs">
+      <DependentUpon>frmAgentDetails_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentGeneralInfo_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentGeneralInfo_RtoL.Designer.cs">
+      <DependentUpon>frmAgentGeneralInfo_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentLocation_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentLocation_RtoL.Designer.cs">
+      <DependentUpon>frmAgentLocation_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentsView_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentsView_RtoL.Designer.cs">
+      <DependentUpon>frmAgentsView_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentUpdate_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAgentUpdate_RtoL.Designer.cs">
+      <DependentUpon>frmAgentUpdate_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAlertProfile_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAlertProfile_RtoL.Designer.cs">
+      <DependentUpon>frmAlertProfile_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAssignAcl_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAssignAcl_RtoL.Designer.cs">
+      <DependentUpon>frmAssignAcl_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAssignAlarm_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAssignAlarm_RtoL.Designer.cs">
+      <DependentUpon>frmAssignAlarm_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAssignSetting_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmAssignSetting_RtoL.Designer.cs">
+      <DependentUpon>frmAssignSetting_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmBackupDatabase_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmBackupDatabase_RtoL.Designer.cs">
+      <DependentUpon>frmBackupDatabase_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmLoginToAgent_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmLoginToAgent_RtoL.Designer.cs">
+      <DependentUpon>frmLoginToAgent_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmProfileSetting_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmProfileSetting_RtoL.Designer.cs">
+      <DependentUpon>frmProfileSetting_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmBulding_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmBulding_RtoL.Designer.cs">
+      <DependentUpon>frmBulding_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmChatAgent_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmChatAgent_RtoL.Designer.cs">
+      <DependentUpon>frmChatAgent_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmEmploye_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmEmploye_RtoL.Designer.cs">
+      <DependentUpon>frmEmploye_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmMain_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmMain_RtoL.Designer.cs">
+      <DependentUpon>frmMain_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepAgentsId_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepAgentsId_RtoL.Designer.cs">
+      <DependentUpon>frmRepAgentsId_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepOnWork_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepOnWork_RtoL.Designer.cs">
+      <DependentUpon>frmRepOnWork_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepSerchAll_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepSerchAll_RtoL.Designer.cs">
+      <DependentUpon>frmRepSerchAll_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepShowEvents_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepShowEvents_RtoL.Designer.cs">
+      <DependentUpon>frmRepShowEvents_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepShowLastEvent_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRepShowLastEvent_RtoL.Designer.cs">
+      <DependentUpon>frmRepShowLastEvent_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRestoreDatabase_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmRestoreDatabase_RtoL.Designer.cs">
+      <DependentUpon>frmRestoreDatabase_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSearchAll_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSearchAll_RtoL.Designer.cs">
+      <DependentUpon>frmSearchAll_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSelectAgentForId_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSelectAgentForId_RtoL.Designer.cs">
+      <DependentUpon>frmSelectAgentForId_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSelectAgent_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSelectAgent_RtoL.Designer.cs">
+      <DependentUpon>frmSelectAgent_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmShowInfoSmall_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmShowInfoSmall_RtoL.designer.cs">
+      <DependentUpon>frmShowInfoSmall_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmShowInfo_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmShowInfo_RtoL.designer.cs">
+      <DependentUpon>frmShowInfo_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSplash_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmSplash_RtoL.Designer.cs">
+      <DependentUpon>frmSplash_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RtoL_Forms\frmLogin_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmLogin_RtoL.Designer.cs">
+      <DependentUpon>frmLogin_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmUser_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmUser_RtoL.Designer.cs">
+      <DependentUpon>frmUser_RtoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmWaiting_RtoL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RtoL_Forms\frmWaiting_RtoL.Designer.cs">
+      <DependentUpon>frmWaiting_RtoL.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LtoR_Forms\frmBulding_LtoR.resx">
+      <DependentUpon>frmBulding_LtoR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LtoR_Forms\frmLogin_LtoR.resx">
+      <DependentUpon>frmLogin_LtoR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LtoR_Forms\frmMain_LtoR.resx">
+      <DependentUpon>frmMain_LtoR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LtoR_Forms\frmShowInfoSmall_LtoR.resx">
+      <DependentUpon>frmShowInfoSmall_LtoR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LtoR_Forms\frmShowInfo_LtoR.resx">
+      <DependentUpon>frmShowInfo_LtoR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LtoR_Forms\frmSplash_LtoR.resx">
+      <DependentUpon>frmSplash_LtoR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmACLProfile_RtoL.resx">
+      <DependentUpon>frmACLProfile_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmACLToObjectsProfile_RtoL.resx">
+      <DependentUpon>frmACLToObjectsProfile_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAgentAssets_RtoL.resx">
+      <DependentUpon>frmAgentAssets_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAgentDetails_RtoL.resx">
+      <DependentUpon>frmAgentDetails_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAgentGeneralInfo_RtoL.resx">
+      <DependentUpon>frmAgentGeneralInfo_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAgentLocation_RtoL.resx">
+      <DependentUpon>frmAgentLocation_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAgentsView_RtoL.resx">
+      <DependentUpon>frmAgentsView_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAgentUpdate_RtoL.resx">
+      <DependentUpon>frmAgentUpdate_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAlertProfile_RtoL.resx">
+      <DependentUpon>frmAlertProfile_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAssignAcl_RtoL.resx">
+      <DependentUpon>frmAssignAcl_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAssignAlarm_RtoL.resx">
+      <DependentUpon>frmAssignAlarm_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmAssignSetting_RtoL.resx">
+      <DependentUpon>frmAssignSetting_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmBackupDatabase_RtoL.resx">
+      <DependentUpon>frmBackupDatabase_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmLoginToAgent_RtoL.resx">
+      <DependentUpon>frmLoginToAgent_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmProfileSetting_RtoL.resx">
+      <DependentUpon>frmProfileSetting_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmBulding_RtoL.resx">
+      <DependentUpon>frmBulding_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmChatAgent_RtoL.resx">
+      <DependentUpon>frmChatAgent_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmEmploye_RtoL.resx">
+      <DependentUpon>frmEmploye_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmMain_RtoL.resx">
+      <DependentUpon>frmMain_RtoL.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmRepAgentsId_RtoL.resx">
+      <DependentUpon>frmRepAgentsId_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmRepOnWork_RtoL.resx">
+      <DependentUpon>frmRepOnWork_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmRepSerchAll_RtoL.resx">
+      <DependentUpon>frmRepSerchAll_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmRepShowEvents_RtoL.resx">
+      <DependentUpon>frmRepShowEvents_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmRepShowLastEvent_RtoL.resx">
+      <DependentUpon>frmRepShowLastEvent_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmRestoreDatabase_RtoL.resx">
+      <DependentUpon>frmRestoreDatabase_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmSearchAll_RtoL.resx">
+      <DependentUpon>frmSearchAll_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmSelectAgentForId_RtoL.resx">
+      <DependentUpon>frmSelectAgentForId_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmSelectAgent_RtoL.resx">
+      <DependentUpon>frmSelectAgent_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmShowInfoSmall_RtoL.resx">
+      <DependentUpon>frmShowInfoSmall_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmShowInfo_RtoL.resx">
+      <DependentUpon>frmShowInfo_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmSplash_RtoL.resx">
+      <DependentUpon>frmSplash_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RtoL_Forms\frmLogin_RtoL.resx">
+      <DependentUpon>frmLogin_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmUser_RtoL.resx">
+      <DependentUpon>frmUser_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RtoL_Forms\frmWaiting_RtoL.resx">
+      <DependentUpon>frmWaiting_RtoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\Administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\User48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertcooldisk.wav" />
+    <None Include="Resources\variometer_tone.wav" />
+    <None Include="Images\unknown.jpg" />
+    <None Include="Images\-desktop.png" />
+    <None Include="Images\Devices-computer-laptop-icon.png" />
+    <None Include="Resources\400px-Warning_icon.png" />
+    <None Include="Resources\warning2.png" />
+    <None Include="Images\ActionSuccess.png" />
+    <Content Include="logo.ico" />
+    <Content Include="User.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

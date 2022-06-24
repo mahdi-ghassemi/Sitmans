@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2013/04/14 14:30:42.250,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2013/04/14 14:32:38.031,=D:\Agent-V1\TAgent_Class.pas</Transaction>
+    <Transaction>2013/04/14 14:33:11.812,D:\Agent-V1\TAgent_Class.pas=</Transaction>
+    <Transaction>2013/04/14 14:33:18.359,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:34:33.687,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\TAgent_Class.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:34:47.593,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:34:59.093,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\LocalData.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:36:22.875,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Project2.dproj=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2013/04/14 14:37:39.531,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\9.0\Imports\WbemScripting_TLB.pas</Transaction>
+    <Transaction>2013/04/14 14:38:39.343,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:39:07.843,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\GetActiveNetworkSetting.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:47:57.453,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:48:09.718,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\GetBios.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:50:18.078,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2013/04/14 14:51:19.531,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\uSMBIOS.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+  </Transactions>
+</BorlandProject>

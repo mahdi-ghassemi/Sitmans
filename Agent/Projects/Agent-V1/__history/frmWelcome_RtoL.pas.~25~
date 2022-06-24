@@ -1,0 +1,83 @@
+unit frmWelcome_RtoL;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Layouts, FMX.Memo,
+  GetInfoThreadUnit,frmMain_RtoL,LocalData;
+
+type TFormMessages = record
+    frmCaption : string;
+    memWelcome : string;
+    btnExit : string;
+    btnOK : string;
+
+  end;
+
+type
+  TfrmWelcome_fa = class(TForm)
+    btnOk: TButton;
+    btnExit: TButton;
+    memWelcome: TMemo;
+    procedure btnExitClick(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure GetFormMessageFromDll();
+    procedure FillForm;
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmWelcome_fa: TfrmWelcome_fa;
+  SystemMessages : TFormMessages;
+  LanguageCode : string;
+implementation
+
+{$R *.fmx}
+
+procedure TfrmWelcome_fa.btnExitClick(Sender: TObject);
+begin
+   Application.Terminate;
+end;
+
+procedure TfrmWelcome_fa.btnOkClick(Sender: TObject);
+begin
+
+   frmWelcome_fa.Visible := false;
+   frmMain_fa.TimerActive.Enabled := true;
+   frmMain_fa.Show;
+end;
+
+procedure TfrmWelcome_fa.FormCreate(Sender: TObject);
+begin
+ LanguageCode := LocalData.GetDataFromDll('AgentSetting','LanguageCode','1');
+ FillForm;
+
+end;
+
+procedure TfrmWelcome_fa.FillForm;
+begin
+  GetFormMessageFromDll;
+
+  frmWelcome_fa.Caption := SystemMessages.frmCaption;
+  frmWelcome_fa.btnOk.Text := SystemMessages.btnOk;
+  frmWelcome_fa.btnExit.Text := SystemMessages.btnExit;
+  frmWelcome_fa.memWelcome.Lines.Add(SystemMessages.memWelcome);
+
+end;
+
+procedure TfrmWelcome_fa.GetFormMessageFromDll();
+begin
+  SystemMessages.frmCaption := LocalData.GetMessageFromDll(LanguageCode,'frmWelcome_fa','frmCaption');
+  SystemMessages.btnOk := LocalData.GetMessageFromDll(LanguageCode,'frmMain_fa','btnOk');
+  SystemMessages.btnExit := LocalData.GetMessageFromDll(LanguageCode,'frmMain_fa','btnExit');
+  SystemMessages.memWelcome := LocalData.GetMessageFromDll(LanguageCode,'frmWelcome_fa','memWelcome');
+
+end;
+
+end.

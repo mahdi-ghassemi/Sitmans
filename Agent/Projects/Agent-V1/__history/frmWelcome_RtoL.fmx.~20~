@@ -1,0 +1,82 @@
+object frmWelcome_fa: TfrmWelcome_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form1'
+  BorderIcons = [biSystemMenu, biMinimize]
+  ClientHeight = 400
+  ClientWidth = 600
+  Position = poScreenCenter
+  Transparency = False
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  object btnOk: TButton
+    Position.Point = '(32,360)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnOkClick
+    TabOrder = 0
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnOk'
+  end
+  object btnExit: TButton
+    Position.Point = '(128,360)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnExitClick
+    TabOrder = 1
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnExit'
+  end
+  object Panel1: TPanel
+    Position.Point = '(24,24)'
+    Width = 553.000000000000000000
+    Height = 321.000000000000000000
+    TabOrder = 3
+    object lbl1: TLabel
+      Position.Point = '(24,12)'
+      Width = 520.000000000000000000
+      Height = 25.000000000000000000
+      TabOrder = 1
+      Text = 'lbl1'
+    end
+    object lbl2: TLabel
+      Position.Point = '(24,47)'
+      Width = 520.000000000000000000
+      Height = 25.000000000000000000
+      TabOrder = 2
+      Text = 'lbl2'
+    end
+    object lbl3: TLabel
+      Position.Point = '(24,83)'
+      Width = 497.000000000000000000
+      Height = 25.000000000000000000
+      TabOrder = 3
+      Text = 'lbl3'
+    end
+    object lbl4: TLabel
+      Position.Point = '(24,124)'
+      Width = 497.000000000000000000
+      Height = 42.000000000000000000
+      TabOrder = 4
+      Text = 'lbl4'
+    end
+    object lbl5: TLabel
+      Position.Point = '(24,183)'
+      Width = 497.000000000000000000
+      Height = 42.000000000000000000
+      TabOrder = 5
+      Text = 'lbl5'
+    end
+    object lbl6: TLabel
+      Position.Point = '(24,239)'
+      Width = 497.000000000000000000
+      Height = 42.000000000000000000
+      TabOrder = 6
+      Text = 'lbl6'
+    end
+  end
+end

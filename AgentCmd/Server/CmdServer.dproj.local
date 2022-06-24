@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/08/01 19:23:45.000.062,=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2013/08/01 19:24:22.000.578,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Project3.dproj=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\CmdServer.dproj</Transaction>
+    <Transaction>2013/08/01 19:24:55.000.078,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.dfm=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\CmdSrv.dfm</Transaction>
+    <Transaction>2013/08/01 19:24:55.000.078,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\Unit4.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\CmdSrv.pas</Transaction>
+    <Transaction>2013/08/01 19:28:25.000.640,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\CmdSrv.pas=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\telnet\Server\CmdSrv.pas</Transaction>
+    <Transaction>2013/08/01 19:28:25.000.640,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\CmdSrv.dfm=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\telnet\Server\CmdSrv.dfm</Transaction>
+    <Transaction>2013/08/01 19:28:26.000.593,C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\CmdServer.dproj=C:\Documents and Settings\Mehdi\My Documents\RAD Studio\Projects\telnet\Server\CmdServer.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

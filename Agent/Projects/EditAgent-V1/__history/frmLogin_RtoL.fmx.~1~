@@ -1,0 +1,59 @@
+object frmLogin_fa: TfrmLogin_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form1'
+  BorderStyle = bsSizeToolWin
+  ClientHeight = 206
+  ClientWidth = 391
+  Position = poDesktopCenter
+  Transparency = False
+  Visible = False
+  StyleLookup = 'backgroundstyle'
+  object Label1: TLabel
+    Position.Point = '(248,32)'
+    Width = 120.000000000000000000
+    Height = 15.000000000000000000
+    TabOrder = 1
+    Text = 'lblTitle'
+  end
+  object Label2: TLabel
+    Position.Point = '(288,88)'
+    Width = 88.000000000000000000
+    Height = 25.000000000000000000
+    TabOrder = 10
+    Text = 'lblPassword'
+  end
+  object txbPassword: TEdit
+    Position.Point = '(64,91)'
+    Width = 169.000000000000000000
+    Height = 22.000000000000000000
+    TabOrder = 11
+    ReadOnly = False
+    Password = True
+  end
+  object btnOk: TButton
+    Position.Point = '(56,168)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    TabOrder = 12
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnOk'
+  end
+  object btnExit: TButton
+    Position.Point = '(152,168)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = btnExitClick
+    TabOrder = 13
+    StaysPressed = False
+    IsPressed = False
+    Text = 'btnExit'
+  end
+  object Image1: TImage
+    Position.Point = '(11,12)'
+    Width = 70.000000000000000000
+    Height = 61.000000000000000000
+  end
+end

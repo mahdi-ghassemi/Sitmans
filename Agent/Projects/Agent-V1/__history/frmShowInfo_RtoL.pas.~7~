@@ -1,0 +1,44 @@
+unit frmShowInfo_RtoL;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,LocalData;
+
+type
+  TfrmShowInfo_fa = class(TForm)
+    lbl1: TLabel;
+    btnOk: TButton;
+    StyleBook1: TStyleBook;
+    procedure btnOkClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    _message : string; { Private declarations }
+  public
+  property PMessage: string read _message write _message;
+    { Public declarations }
+  end;
+
+var
+  frmShowInfo_fa: TfrmShowInfo_fa;
+  InfoMessage : string;
+
+implementation
+
+{$R *.fmx}
+
+procedure TfrmShowInfo_fa.btnOkClick(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure TfrmShowInfo_fa.FormActivate(Sender: TObject);
+begin
+     if _message = 'RegisterFail' then
+     begin
+
+     end;
+end;
+
+end.

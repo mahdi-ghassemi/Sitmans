@@ -1,0 +1,44 @@
+object frmConfig_fa: TfrmConfig_fa
+  Left = 0
+  Top = 0
+  BiDiMode = bdRightToLeft
+  Caption = 'Form1'
+  ClientHeight = 400
+  ClientWidth = 600
+  Position = poScreenCenter
+  Transparency = False
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  object Label1: TLabel
+    Position.Point = '(360,72)'
+    Width = 120.000000000000000000
+    Height = 15.000000000000000000
+    TabOrder = 1
+    Text = 'Label1'
+  end
+  object Label2: TLabel
+    Position.Point = '(360,128)'
+    Width = 120.000000000000000000
+    Height = 15.000000000000000000
+    TabOrder = 10
+    Text = 'Label2'
+  end
+  object Label3: TLabel
+    Position.Point = '(360,176)'
+    Width = 120.000000000000000000
+    Height = 15.000000000000000000
+    TabOrder = 11
+    Text = 'Label3'
+  end
+  object Button1: TButton
+    Position.Point = '(120,328)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    OnClick = Button1Click
+    TabOrder = 12
+    StaysPressed = False
+    IsPressed = False
+    Text = 'Button1'
+  end
+end
